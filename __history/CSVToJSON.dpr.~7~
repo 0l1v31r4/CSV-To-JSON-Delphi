@@ -1,0 +1,15 @@
+program CSVToJSON;
+
+uses
+  Vcl.Forms,
+  Principal in 'Principal.pas' {Form4},
+  ProgressDialog in 'ProgressDialog.pas' {FProgressDialog};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm4, Form4);
+  Application.Run;
+end.

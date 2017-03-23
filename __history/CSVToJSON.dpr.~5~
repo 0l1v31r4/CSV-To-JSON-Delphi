@@ -1,0 +1,21 @@
+program CSVToJSON;
+
+uses
+  madExcept,
+  madLinkDisAsm,
+  madListHardware,
+  madListProcesses,
+  madListModules,
+  Vcl.Forms,
+  Principal in 'Principal.pas' {Form4},
+  ProgressDialog in 'ProgressDialog.pas' {FProgressDialog};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TFProgressDialog, FProgressDialog);
+  Application.Run;
+end.
