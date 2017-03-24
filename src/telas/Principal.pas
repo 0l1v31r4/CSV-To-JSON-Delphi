@@ -218,6 +218,7 @@ begin
     TThread.Synchronize(nil, procedure
     var
     TS:TMemoryStream;
+    vTemp:string;
     A:Integer;
     begin
       Separetor := edtCharSep.Text;
@@ -225,8 +226,25 @@ begin
       begin
         LenFied := Length(mmoViewCSV.Lines[I].Split(Separetor));
         mmoListaCabecario.Lines.Clear;
-        for A := 0 to LenFied do
-           mmoListaCabecario.Lines.Add(InputBox('Cabeçário CSV', Format('Digite o nome de cabeçário da posição [%d]:',[A]),'chave'));
+        A := 0;
+        while A < LenFied do
+        begin
+          vTemp := InputBox('Cabeçário CSV', Format('Digite o nome de cabeçário da posição [%d]:',[A]),'chave');
+          if vTemp.IndexOf(Separetor) >= 0 then
+              if Length(vTemp.Split(Separetor)) <= (LenFied - A) then
+              begin
+                  A := A + Length(vTemp.Split(Separetor));
+                  mmoListaCabecario.Lines.AddStrings(vTemp.Split(Separetor));
+                  continue;
+              end
+              else
+              begin
+                ShowMessage('Quantidade de campos informados ultrapassa a aquantidade de colunas!');
+                continue;
+              end;
+          mmoListaCabecario.Lines.Add(vTemp);
+          Inc(A,1);
+        end;
       end;
       try
         TS:=TMemoryStream.Create;
