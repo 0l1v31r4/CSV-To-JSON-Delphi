@@ -10,5 +10,9 @@
     <Transaction>2017/03/23 10:19:05.000.055,=C:\berp_lab\CSVtoJSON\Unit1.pas</Transaction>
     <Transaction>2017/03/23 10:19:34.000.143,C:\berp_lab\CSVtoJSON\Unit1.dfm=C:\berp_lab\CSVtoJSON\ProgressDialog.dfm</Transaction>
     <Transaction>2017/03/23 10:19:34.000.143,C:\berp_lab\CSVtoJSON\Unit1.pas=C:\berp_lab\CSVtoJSON\ProgressDialog.pas</Transaction>
+    <Transaction>2017/03/24 09:01:51.600,C:\berp_lab\CSVtoJSON\ProgressDialog.pas=</Transaction>
+    <Transaction>2017/03/24 09:01:51.615,C:\berp_lab\CSVtoJSON\Principal.pas=</Transaction>
+    <Transaction>2017/03/24 09:04:11.930,=C:\berp_lab\CSVtoJSON\src\telas\Principal.pas</Transaction>
+    <Transaction>2017/03/24 09:04:22.602,=C:\berp_lab\CSVtoJSON\src\telas\ProgressDialog.pas</Transaction>
   </Transactions>
 </BorlandProject>

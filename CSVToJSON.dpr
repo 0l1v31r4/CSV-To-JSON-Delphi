@@ -2,8 +2,8 @@ program CSVToJSON;
 
 uses
   Vcl.Forms,
-  Principal in 'Principal.pas' {FCSVToJSON},
-  ProgressDialog in 'ProgressDialog.pas' {FProgressDialog};
+  Principal in 'src\telas\Principal.pas' {FCSVToJSON},
+  ProgressDialog in 'src\telas\ProgressDialog.pas' {FProgressDialog};
 
 {$R *.res}
 

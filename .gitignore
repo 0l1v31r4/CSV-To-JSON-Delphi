@@ -1,0 +1,15 @@
+Win32
+__history/*
+*.identcache
+*.bak
+*.dcu
+*.dll
+*.exe
+*.~?~
+*.tvsconfig
+debug/*
+*.scc
+*.~???
+*.ddp
+/.project
+/dcu
