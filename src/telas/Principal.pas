@@ -48,6 +48,8 @@ type
     btnOpenDestino: TButton;
     btnAtualize: TButton;
     pbPreview: TProgressBar;
+    il2: TImageList;
+    btnAbout: TButton;
     procedure btnOpenOrigemClick(Sender: TObject);
     procedure btnOpenDestinoClick(Sender: TObject);
     procedure btnAtualizeClick(Sender: TObject);
@@ -55,6 +57,7 @@ type
     procedure chklstListaCSVClick(Sender: TObject);
     procedure btnConverterClick(Sender: TObject);
     procedure btnPreviewClick(Sender: TObject);
+    procedure btnAboutClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,10 +75,22 @@ var
 
 implementation
   uses
-    ProgressDialog, System.threading;
+    ProgressDialog, System.threading, ABOUT;
 {$R *.dfm}
 
 { TForm4 }
+
+procedure TFCSVToJSON.btnAboutClick(Sender: TObject);
+  var
+    About:TAboutBox;
+begin
+   try
+     About:=TAboutBox.Create(Self);
+     About.ShowModal;
+   finally
+     About.Free;
+   end;
+end;
 
 procedure TFCSVToJSON.btnAtualizeClick(Sender: TObject);
 begin

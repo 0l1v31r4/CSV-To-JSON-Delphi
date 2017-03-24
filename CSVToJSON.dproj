@@ -5,7 +5,7 @@
         <FrameworkType>VCL</FrameworkType>
         <MainSource>CSVToJSON.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -63,12 +63,14 @@
         <DCC_K>false</DCC_K>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <UWP_DelphiLogo150>C:\berp_lab\CSVtoJSON\dist\bw-swagger-round.png</UWP_DelphiLogo150>
+        <Icon_MainIcon>dist\bw-swagger-round.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>C:\berp_lab\CSVtoJSON\dist\bw-swagger-round.png</UWP_DelphiLogo44>
         <DCC_UsePackage>DBXSqliteDriver;dxSkinBlueprintRS24;DBXDb2Driver;dxPSDBTeeChartRS24;dxPSdxGaugeControlLnkRS24;vclactnband;dxSpreadSheetRS24;vclFireDAC;dxDockingRS24;fs24;tethering;dxSkinVisualStudio2013BlueRS24;dxPScxTLLnkRS24;dxBarExtItemsRS24;FireDACADSDriver;dxFireDACServerModeRS24;JvPluginSystem;dxPSTeeChartRS24;dxSkinOffice2007BlackRS24;TMSQueryStudio;FireDACMSSQLDriver;vcltouch;ACBr_NFe;JvBands;vcldb;Intraweb;svn;dxSkinXmas2008BlueRS24;dxSkinscxSchedulerPainterRS24;JvJans;ACBr_NFeDanfeFR;ACBr_NFeDanfeESCPOS;dxSkinsdxBarPainterRS24;VDOPrint_XE4;dxSkinOffice2010BlackRS24;dxADOServerModeRS24;TMSScripter_Memo;JvDotNetCtrls;dxGDIPlusRS24;dxPSdxDBTVLnkRS24;frx24;vclib;dxSkinLilianRS24;frxDBX24;RaizeComponentsVclDbXE10;FireDACDBXDriver;GMLibEdit_D_Berlin;tmsexdXE10;ACBr_NFSeDanfseFR;dxNavBarRS24;vclx;cxTreeListRS24;dxSkinDevExpressDarkStyleRS24;dxtrmdRS24;ACBr_SATExtratoRL;RESTBackendComponents;dxRibbonRS24;VCLRESTComponents;cxExportRS24;cxPivotGridChartRS24;cxTreeListdxBarPopupMenuRS24;dxSkinOffice2013LightGrayRS24;GMLib_D_Berlin;dxTabbedMDIRS24;vclie;dxSkinVisualStudio2013LightRS24;bindengine;CloudService;remotedb;JvHMI;FireDACMySQLDriver;ACBr_PAF;cxPivotGridOLAPRS24;ACBr_SATECFVirtual;fsDB24;dxSkinSharpRS24;dxSkinBlackRS24;DataSnapClient;dxPSLnksRS24;bindcompdbx;ACBr_CTeDacteRL;ACBr_TCP;dxSkinCoffeeRS24;DBXSybaseASEDriver;IndyIPServer;ACBr_CTe;dxSkinsdxRibbonPainterRS24;dxCoreRS24;IndySystem;fsIBX24;tmsxlsdXE10;dxSkinOffice2013DarkGrayRS24;dsnapcon;ACBr_synapse;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;TMSWebGMapsPkgDXE;Jcl;ACBr_SPEDImportar;YxdUI;ACBr_SPED;ACBr_MDFe;emshosting;dxBarDBNavRS24;dxSkinDarkSideRS24;ACBr_BoletoRL;ACBr_LFD;TMSDiagram;dxSkinOffice2013WhiteRS24;DBXOdbcDriver;FireDACTDataDriver;FMXTee;dxPScxExtCommonRS24;dxPSdxLCLnkRS24;soaprtl;DbxCommonDriver;dxPScxPivotGridLnkRS24;JvManagedThreads;ACBr_NFSeDanfseRL;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;dxSkinMcSkinRS24;JvTimeFramework;rtl;dxLayoutControlRS24;DbxClientDriver;cxGridRS24;DBXSybaseASADriver;dxSkinBlueRS24;TMSScripter_IDE;dxSpellCheckerRS24;JvSystem;cxLibraryRS24;dxSkinStardustRS24;TMREnter;dxSkinCaramelRS24;JvStdCtrls;appanalytics;dxSkinsCoreRS24;dxDBXServerModeRS24;DCEF_DX10;dxMapControlRS24;IndyIPClient;dxSkinHighContrastRS24;ACBr_Convenio115;bindcompvcl;fsTee24;dxSkinTheAsphaltWorldRS24;TeeUI;cxPageControlRS24;dxPsPrVwAdvRS24;cxEditorsRS24;dxSkinSevenClassicRS24;JvDocking;VclSmp;cxSchedulerRibbonStyleEventEditorRS24;JvPascalInterpreter;FireDACODBCDriver;frxe24;dxSkinPumpkinRS24;DataSnapIndy10ServerTransport;aurelius;JclVcl;dxSkinscxPCPainterRS24;dxPSPrVwRibbonRS24;ACBr_Boleto;DataSnapProviderClient;ACBr_SEF2;FireDACMongoDBDriver;dxSkinSevenRS24;JvControls;JvPrintPreview;ACBr_MDFeDamdfeFR;ACBr_NFSe;dxdborRS24;dxmdsRS24;DataSnapServerMidas;RESTComponents;cxSchedulerGridRS24;dxHttpIndyRequestRS24;cxPivotGridRS24;DBXInterBaseDriver;ACBr_TEFD;emsclientfiredac;DataSnapFireDAC;svnui;JvGlobus;LabeledControls;dxdbtrRS24;dxSkinMetropolisRS24;dxSkinMoneyTwinsRS24;dxPScxPCProdRS24;DBXMSSQLDriver;JvMM;ACBr_MDFeDamdfeRL;TMSScripter;DatasnapConnectorsFreePascal;dxWizardControlRS24;bindcompfmx;dxPSdxOCLnkRS24;dxBarExtDBItemsRS24;DBXOracleDriver;dxPSdxFCLnkRS24;JvNet;inetdb;cxSchedulerTreeBrowserRS24;dxSkinOffice2016ColorfulRS24;ACBr_Diversos;JvAppFrm;frxADO24;ACBr_TXTComum;ACBr_GNREGuiaFR;FmxTeeUI;emsedge;FireDACIBDriver;fmx;fmxdae;dxSkinSpringTimeRS24;dxSkinValentineRS24;dxSkinLondonLiquidSkyRS24;ACBr_CTeDacteFR;dxSkinWhiteprintRS24;JvWizards;ACBr_Ponto;dbexpress;IndyCore;dxSkiniMaginaryRS24;dxTileControlRS24;dxSkinOffice2016DarkRS24;dsnap;DataSnapCommon;emsclient;cxDataRS24;FireDACCommon;dxSkinOffice2007PinkRS24;dxPSdxSpreadSheetLnkRS24;ACBr_PCNComum;JvDB;JvPageComps;fsADO24;DataSnapConnectors;ACBR_DeSTDA;dxSkinDevExpressStyleRS24;soapserver;ACBr_SAT;TMSScripter_Legacy;RaizeComponentsVclXE10;JclDeveloperTools;dxBarRS24;TMSScripter_VCL;dxSkinMetropolisDarkRS24;FireDACOracleDriver;DBXMySQLDriver;JvCmp;CPortLibDXE;dxPSRichEditControlLnkRS24;DBXFirebirdDriver;dxPScxCommonRS24;ACBr_Sintegra;FireDACCommonODBC;FireDACCommonDriver;ACBr_GNRE;inet;IndyIPCommon;dxSkinVS2010RS24;JvCustom;vcl;ACBr_NFeDanfeRL;dxSkinSharpPlusRS24;JvXPCtrls;dxPSdxDBOCLnkRS24;ACBr_SATExtratoESCPOS;FireDACDb2Driver;dxThemeRS24;dxSkinOffice2007GreenRS24;madExcept_;madBasic_;TeeDB;FireDAC;dxPScxGridLnkRS24;dxPScxVGridLnkRS24;JvCore;ACBr_Comum;JvCrypt;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;dxSkinOffice2010BlueRS24;GMLib_D_Berlin_VCL;ACBr_GNREGuiaRL;dxServerModeRS24;JvDlgs;JvRuntimeDesign;ibxpress;Tee;DataSnapServer;ibxbindings;cxSchedulerRS24;vclwinx;FireDACDSDriver;ACBr_OpenSSL;dxPSCoreRS24;dxSkinsdxDLPainterRS24;dxSkinOffice2007BlueRS24;madDisAsm_;ACBr_DFeComum;CustomIPTransport;vcldsnap;dxSkinGlassOceansRS24;dxRibbonCustomizationFormRS24;dxPScxSchedulerLnkRS24;frxIBX24;dxSkinSummer2008RS24;dxSkinDarkRoomRS24;bindcomp;dxSkinFoggyRS24;ACBr_Serial;DBXInformixDriver;dxorgcRS24;tmswizdXE10;frxTee24;dxSkinOffice2010SilverRS24;frce;SNFe;dclTMSQueryStudio;ACBr_BlocoX;dxRichEditControlRS24;dxSkinsdxNavBarPainterRS24;dbxcds;ACBr_NFCeECFVirtual;adortl;dxSkinSilverRS24;ACBr_BoletoFR;dxSkinVisualStudio2013DarkRS24;dxComnRS24;cxVerticalGridRS24;dxFlowChartRS24;frxDB24;dsnapxml;dbrtl;inetdbxpress;IndyProtocols;dxGaugeControlRS24;dxSkinOffice2007SilverRS24;dxSkinLiquidSkyRS24;JclContainers;ACBr_MTER;tmsdXE10;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <BT_BuildType>Debug</BT_BuildType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
@@ -97,6 +99,8 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppEnableHighDPI>true</AppEnableHighDPI>
     </PropertyGroup>
@@ -110,6 +114,10 @@
         </DCCReference>
         <DCCReference Include="src\telas\ProgressDialog.pas">
             <Form>FProgressDialog</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\telas\ABOUT.pas">
+            <Form>AboutBox</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -140,7 +148,20 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
+                <DeployFile LocalName="dist\bw-swagger-round.png" Configuration="Release" Class="UWP_DelphiLogo150">
+                    <Platform Name="Win32">
+                        <RemoteDir>Assets\</RemoteDir>
+                        <RemoteName>Logo150x150.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="dist\CSVToJSON.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>CSVToJSON.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="dist\CSVToJSON.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>CSVToJSON.exe</RemoteName>
                         <Overwrite>true</Overwrite>
