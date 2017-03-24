@@ -4,7 +4,6 @@ __history/*
 *.bak
 *.dcu
 *.dll
-*.exe
 *.~?~
 *.tvsconfig
 debug/*
