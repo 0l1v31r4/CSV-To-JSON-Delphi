@@ -10,6 +10,7 @@ uses
   FireDAC.Comp.UI;
 
 type
+  TFieldType = (ftNoneType, ftCardial, ftString, ftDateTime);
   TItemLista = class
     private
     FPath: string;
@@ -66,7 +67,7 @@ type
     procedure PreencheListaCSV;
     procedure LoadFile(pItem:TItemLista; pGerar:Boolean=False);
     procedure ConverteJSON(pLines:TStrings);
-    function GetFormatType(pValue:string):string;
+    function GetFormatType(pValue:string; var pType:TFieldType):string;
     function iFThen(Condition: Boolean; ifTrue, ifFalse: Variant):Variant;
   end;
 
@@ -205,11 +206,12 @@ end;
 
 procedure TFCSVToJSON.ConverteJSON(pLines:TStrings);
 var
-  I, J:Integer;
+  I, J, C:Integer;
   RowItem:TArray<string>;
   Separetor:string;
   LenFied:Integer;
   CSV, Cabecario:Tstrings;
+  TyArr:TArray<TFieldType>;
 begin
   try
     CSV := TStringList.Create;
@@ -269,20 +271,22 @@ begin
       pbPreview.Max := CSV.Count -1;
       pbPreview.Position := 0;
     end);
-
+    SetLength(TyArr, Cabecario.Count);
     pLines.Add('[');
     for I := 1 to CSV.Count -1 do
     begin
       TThread.Synchronize(nil, procedure
-    begin
-      pbPreview.Position := I;
-    end);
+      begin
+        pbPreview.Position := I;
+      end);
 
        pLines.Add('  {');
       RowItem := CSV[I].Split(Separetor);
+      if Cabecario.Count <> Length(RowItem) then
+          SetLength(RowItem,Cabecario.Count);
       for J := 0 to Cabecario.Count -1 do
       begin
-         pLines.Add(Format('   "%s" : %s%s ',[Cabecario[j], GetFormatType(RowItem[J]),
+         pLines.Add(Format('   "%s" : %s%s ',[Cabecario[j], GetFormatType(RowItem[J], TyArr[J]),
          ifthen((Cabecario.Count -1) = J, '',',')]));
       end;
        pLines.Add(Format('  }%s',[ ifthen((CSV.Count -1) = I, '',',')]));
@@ -295,19 +299,58 @@ begin
   end;
 end;
 
-function TFCSVToJSON.GetFormatType(pValue: string): string;
+function TFCSVToJSON.GetFormatType(pValue: string; var pType:TFieldType): string;
 var
   N:Extended;
+  T:TDateTime;
+  D:TDate;
 begin
-   Result := Format('"%s"',[pValue]);
-   if TRegEx.IsMatch(pValue, '^0[0-9].*$') then
-        Exit;
-   if TryStrToFloat(pValue, N) then
-        Exit(N.ToString);
+
+try
+   pValue := pValue.Trim.Replace('"','');
+   if ((pValue.ToUpper = 'NULO') or (pValue.ToUpper = 'NULL')) then
+      Exit('null');
    FormatSettings.DecimalSeparator := '.';
-   if TryStrToFloat(pValue, N) then
-        Exit(N.ToString);
+   Result := Format('"%s"',[pValue]);
+   case pType of
+      ftCardial:begin
+                  if TryStrToFloat(pValue.Replace(',','.'), N) then
+                    Exit(N.ToString)
+                  else
+                    Exit('null');
+                end;
+      ftString:Exit;
+      ftDateTime:begin
+                  if TryStrToDateTime(pValue, T) then
+                    Exit(Format('"%s"',[DateTimeToStr(T).Replace('/','\/')]))
+                  else
+                    Exit('null');
+                 end;
+   end;
+
+   if TRegEx.IsMatch(pValue, '^0[0-9][^(\/)].*$') then
+   begin
+      pType := ftString;
+      Exit;
+   end;
+
+   if TryStrToFloat(pValue.Replace(',','.'), N) then
+   begin
+      pType := ftCardial;
+      Exit(N.ToString);
+   end;
+
+   if TryStrToDateTime(pValue, T) then
+   begin
+     pType := ftDateTime;
+     Exit(Format('"%s"',[DateTimeToStr(T).Replace('/','\/')]));
+   end;
+
+   pType := ftString;
+finally
    FormatSettings.DecimalSeparator := ',';
+end;
+
 //  try
 //   FormatSettings.DecimalSeparator := '.';
 //   Result := Format('"%s"',[pValue]);
@@ -344,7 +387,7 @@ begin
      try
        FileJSON := TStringList.Create;
        ConverteJSON(FileJSON);
-       FileJSON.SaveToFile(Format('%s%s',[edtDestino.Text, pItem.Caption.Replace('.csv','.json')]));
+       FileJSON.SaveToFile(Format('%s%s',[edtDestino.Text, pItem.Caption.Replace('.csv','.json')]),TEncoding.UTF8);
      finally
        FileJSON.Free;
      end;
